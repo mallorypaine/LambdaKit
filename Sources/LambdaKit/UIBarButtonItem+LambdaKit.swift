@@ -64,6 +64,21 @@ extension UIBarButtonItem {
         self.closuresWrapper = ClosureWrapper(handler: handler)
         self.target = self
     }
+    
+    /// Initializes an UIBarButtonItem that will call the given closure when the button is touched.
+    ///
+    /// - parameter title:   The item’s title. If nil, no title is displayed.
+    /// - parameter style:   The style of the item. One of the constants defined in UIBarButtonItemStyle.
+    /// - parameter handler: The closure which handles button touches.
+    ///
+    /// - returns: An initialized instance of UIBarButtonItem.
+    public convenience init(title: String?, style: UIBarButtonItem.Style,
+                            handler: @escaping LKBarButtonHandler)
+    {
+        self.init(title: title, style: style, target: nil, action: #selector(UIBarButtonItem.handleAction))
+        self.closuresWrapper = ClosureWrapper(handler: handler)
+        self.target = self
+    }
 
     // MARK: Private methods
 
