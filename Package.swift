@@ -7,5 +7,8 @@ let package = Package(
         .iOS(.v10),
         .watchOS(.v3),
     ],
+    products: [
+        .library(name: "LambdaKit", targets: ["LambdaKit"]),
+    ],
     targets: [.target(name: "LambdaKit")]
 )
